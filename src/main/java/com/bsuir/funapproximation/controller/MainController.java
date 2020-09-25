@@ -8,6 +8,7 @@ import com.bsuir.funapproximation.logic.impl.FunctionServiceImpl;
 import com.bsuir.linearsystem.logic.LinearSystemService;
 import com.bsuir.linearsystem.logic.impl.LinearSystemServiceImpl;
 import com.bsuir.linearsystem.logic.strategies.LinearSystemStrategy;
+import com.bsuir.linearsystem.logic.strategies.impl.GaussStrategy;
 import com.bsuir.linearsystem.logic.strategies.impl.SquareRootStrategy;
 import com.bsuir.linearsystem.model.Vector;
 import javafx.fxml.FXML;
@@ -22,8 +23,8 @@ import java.io.IOException;
 import static com.bsuir.funapproximation.util.VariantUtils.getF;
 
 public class MainController {
-    private final LinearSystemStrategy squareRootStrategy = new SquareRootStrategy();
-    private final LinearSystemService linearSystemService = new LinearSystemServiceImpl(squareRootStrategy);
+    private final LinearSystemStrategy gaussStrategy = new GaussStrategy();
+    private final LinearSystemService linearSystemService = new LinearSystemServiceImpl(gaussStrategy);
     private final ApproximationService approximationService = new ApproximationServiceImpl(linearSystemService);
     private final FunctionService functionService = new FunctionServiceImpl();
 
@@ -52,7 +53,7 @@ public class MainController {
         Vector cVector = new Vector(n);
         approximationService.approximateFunction(knownXVector, knownYVector, m, n, cVector);
 
-        Vector notKnownXVector = functionService.calculateXVector(a, m, 21);
+        Vector notKnownXVector = functionService.calculateXVector(a, b, 21);
         Vector phiVector = functionService.calculatePhiVector(notKnownXVector, cVector);
         Vector notKnownYVector = functionService.calculateYVector(getF(), notKnownXVector);
         Vector dVector = functionService.calculateInaccuracy(notKnownYVector, phiVector);

@@ -23,7 +23,7 @@ public class ApproximationServiceImpl implements ApproximationService {
                 gMatrix.set(i, k, 0);
                 for (int j = 0; j < m; j++) {
                     double xj = xVector.get(j);
-                    gMatrix.set(i, k, gMatrix.get(i, k) + getPhi().apply(xj, k) * getPhi().apply(xj, k));
+                    gMatrix.set(i, k, gMatrix.get(i, k) + getPhi().apply(xj, i) * getPhi().apply(xj, k));
                 }
             }
             for (int j = 0; j < m; j++) {

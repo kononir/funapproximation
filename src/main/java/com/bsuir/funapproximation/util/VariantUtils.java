@@ -22,6 +22,18 @@ public class VariantUtils {
     }
 
     public static BiFunction<Double, Integer, Double> getPhi() {
-        return Math::pow;
+        return VariantUtils::function;
+    }
+
+    private static double function(double x, int k)
+    {
+        switch (k) {
+            case 0:
+                return 1;
+            case 1:
+                return x;
+            default:
+                return (2 * k + 1) * x * function(x, k - 1) - k * function(x, k - 2);
+        }
     }
 }
