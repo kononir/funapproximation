@@ -9,7 +9,6 @@ import com.bsuir.linearsystem.logic.LinearSystemService;
 import com.bsuir.linearsystem.logic.impl.LinearSystemServiceImpl;
 import com.bsuir.linearsystem.logic.strategies.LinearSystemStrategy;
 import com.bsuir.linearsystem.logic.strategies.impl.GaussStrategy;
-import com.bsuir.linearsystem.logic.strategies.impl.SquareRootStrategy;
 import com.bsuir.linearsystem.model.Vector;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

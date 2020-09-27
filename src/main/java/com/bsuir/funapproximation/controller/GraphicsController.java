@@ -15,7 +15,7 @@ public class GraphicsController extends AbstractResultController {
     public void initResults(ApproximationResult results) {
         Vector xVector = results.getXVector();
         addSeries("f(x)", xVector, results.getYVector());
-        addSeries("phi(x,c)", xVector, results.getPhiVector());
+        addSeries("φ(x,c)", xVector, results.getPhiVector());
         addSeries("d(x)", xVector, results.getDVector());
     }
 
